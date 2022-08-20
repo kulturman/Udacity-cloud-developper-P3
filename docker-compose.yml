@@ -2,3 +2,5 @@ version: "3.1"
 services:
   backend-user:
     build: udagram-api-user/
+  backend-feed:
+    build: udagram-api-feed/

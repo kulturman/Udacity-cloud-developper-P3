@@ -1,4 +1,4 @@
-FROM node:16.9.0
+FROM node:16.13.1
 
 WORKDIR /usr/src/app
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8001
 
 CMD [ "npm", "run", "prod" ]
