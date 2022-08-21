@@ -5,10 +5,6 @@ node_js:
 services:
   - docker
 
-# Prétester les installations
-install:
-  - npm install
-
 # Scripts à exécuter en guise de tests
 before_script:
   - echo "no tests"
