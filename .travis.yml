@@ -1,0 +1,37 @@
+language: node_js
+node_js:
+  - 16
+
+services:
+  - docker
+
+# Prétester les installations
+install:
+  - npm install
+
+# Scripts à exécuter en guise de tests
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  #FEED
+  - docker build -t backend-feed ./udagram-api-feed
+  - docker tag backend-feed kulturman/udagram-api-feed:v1
+  #USER
+  - docker build -t backend-user ./udagram-api-user
+  - docker tag backend-user kulturman/udagram-api-user:v1
+  #FRONTEND
+  - docker build -t frontend ./udagram-frontend
+  - docker tag frontend kulturman/udagram-frontend:v1
+  #REVERSE PROXY
+  - docker build -t reverse-proxy ./udagram-reverse-proxy
+  - docker tag everse-proxy kulturman/udagram-reverse-proxy:v1
+
+# Tâches à effectuer après la réussite du processus. Le formatage du nom d'utilisateur et du mot de passe Docker comme indiqué ci-dessous vous permet de vous connecter par programmation sans que le mot de passe soit exposé dans les journaux.
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push kulturman/udagram-api-feed:v1
+  - docker push kulturman/udagram-api-user:v1
+  - docker push kulturman/udagram-frontend:v1
+  - docker push kulturman/udagram-reverse-proxy:v1

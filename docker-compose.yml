@@ -12,9 +12,7 @@ services:
     image: backend-user
   backend-feed:
     image: backend-feed
-    volumes:
-      - $HOME/.aws:/root/.aws
-  #frontend:
-   # image: udagram-frontend:local
-    #ports:
-     # - "8100:80"
+  frontend:
+    image: frontend:local
+    ports:
+     - "8100:80"
