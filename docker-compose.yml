@@ -13,6 +13,6 @@ services:
   backend-feed:
     image: backend-feed
   frontend:
-    image: frontend:local
+    image: frontend
     ports:
      - "8100:80"

@@ -18,11 +18,11 @@ script:
   - docker build -t backend-user ./udagram-api-user
   - docker tag backend-user kulturman/udagram-api-user:v1
   #FRONTEND
-  - docker build -t frontend ./udagram-frontend
-  - docker tag frontend kulturman/udagram-frontend:v1
+  - docker build -t frontend-main ./udagram-frontend
+  - docker tag frontend-main kulturman/udagram-frontend:v1
   #REVERSE PROXY
   - docker build -t reverse-proxy ./udagram-reverse-proxy
-  - docker tag everse-proxy kulturman/udagram-reverse-proxy:v1
+  - docker tag reverse-proxy kulturman/udagram-reverse-proxy:v1
 
 # Tâches à effectuer après la réussite du processus. Le formatage du nom d'utilisateur et du mot de passe Docker comme indiqué ci-dessous vous permet de vous connecter par programmation sans que le mot de passe soit exposé dans les journaux.
 after_success:
