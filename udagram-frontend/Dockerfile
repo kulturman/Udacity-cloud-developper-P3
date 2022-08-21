@@ -1,10 +1,12 @@
-FROM beevelop/ionic:latest AS ionic
+FROM node:16.13.1 as ionic
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm i -g @ionic/cli
+
+RUN npm i --force
 
 COPY . .
 
