@@ -19,7 +19,7 @@ script:
   - docker tag backend-user kulturman/udagram-api-user:v3
   #FRONTEND
   - docker build -t frontend-main ./udagram-frontend
-  - docker tag frontend-main kulturman/udagram-frontend:v4
+  - docker tag frontend-main kulturman/udagram-frontend:v5
   #REVERSE PROXY
   - docker build -t reverse-proxy ./udagram-reverse-proxy
   - docker tag reverse-proxy kulturman/udagram-reverse-proxy:v3
@@ -29,5 +29,5 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push kulturman/udagram-api-feed:v3
   - docker push kulturman/udagram-api-user:v3
-  - docker push kulturman/udagram-frontend:v4
+  - docker push kulturman/udagram-frontend:v5
   - docker push kulturman/udagram-reverse-proxy:v3
