@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-feed
+  name: reverse-proxy
   labels:
-    run: backend-feed
+    run: reverse-proxy
 spec:
   ports:
   - port: 8080
   selector:
-    run: backend-feed
+    run: reverse-proxy
