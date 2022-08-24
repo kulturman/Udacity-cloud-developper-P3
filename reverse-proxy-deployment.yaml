@@ -15,7 +15,7 @@ spec:
         app: reverse-proxy
     spec: 
       containers: 
-        - image: kulturman/udagram-reverse-proxy:v2
+        - image: kulturman/udagram-reverse-proxy:v3
           name: reverse-proxy
           ports: 
             - 
@@ -27,3 +27,4 @@ spec:
             limits:
               memory: "1024Mi"
               cpu: "500m"   
+      restartPolicy: Always

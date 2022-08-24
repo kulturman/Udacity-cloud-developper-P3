@@ -14,8 +14,9 @@ spec:
       labels: 
         app: backend-feed
     spec: 
+      restartPolicy: Always
       containers: 
-        - image: kulturman/udagram-api-feed:v2
+        - image: kulturman/udagram-api-feed:v3
           name: backend-feed
           ports: 
             - 
