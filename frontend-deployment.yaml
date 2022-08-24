@@ -16,7 +16,7 @@ spec:
     spec: 
       restartPolicy: Always
       containers: 
-        - image: kulturman/udagram-frontend:v3
+        - image: kulturman/udagram-frontend:v4
           name: frontend
           ports: 
             - 
