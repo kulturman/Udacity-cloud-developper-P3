@@ -15,13 +15,21 @@ spec:
         app: backend-feed
     spec: 
       restartPolicy: Always
+      volumes:
+      - name: aws-secret
+        secret:
+          secretName: aws-secret    
       containers: 
         - image: kulturman/udagram-api-feed:v3
           name: backend-feed
           ports: 
             - 
               containerPort: 8080
-          env:
+          volumeMounts:
+            - name: aws-secret
+              mountPath: "/root/.aws/"
+              readOnly: true 
+          env:   
             - name: AWS_BUCKET
               valueFrom:
                 configMapKeyRef:
