@@ -17,6 +17,13 @@ spec:
       restartPolicy: Always
       containers: 
         - image: kulturman/udagram-api-user:v3
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
           name: backend-user
           ports: 
             - 
